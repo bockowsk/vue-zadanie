@@ -16,6 +16,11 @@
       <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
+  	<div v-if="email.length < 10">Ale masz krótki adres!</div>
+	<div v-else-if="email.length < 15">Twój adres e-mail jest w sam raz.</div>
+	<div v-else>Twój adres e-mail jest stanowczo za długi.</div>
+  	<input type="email" v-model="email">
+  	<button @click="alertMyEmail()">Wyświetl mój e-mail w alercie</button>
   </div>
 </template>
 
@@ -24,10 +29,18 @@ export default {
   name: 'app',
   data () {
     return {
-      msg: 'Hello World!!!'
+      msg: 'Hello World!!!',
+      email: ''
     }
+  },
+  methods: {
+ 	 alertMyEmail() {
+     alert(this.email);
   }
 }
+   
+}
+
 </script>
 
 <style lang="scss">
