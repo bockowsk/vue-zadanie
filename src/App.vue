@@ -12,13 +12,16 @@
 	<h3>Witaj {{email}}!</h3>
 	<a href="" @click="toogleDiv()" v-if="logged==1">Wyloguj</a>
 	</div>
+  <login-form @login="logMeIn($event)"></login-form>
   </div>
 </template>
 
 <script>
 import "milligram";
+import LoginForm from "./LoginForm";
 export default {
   name: 'app',
+  components: {LoginForm},
   data () {
     return {
       msg: 'Hello World!!!',
@@ -34,7 +37,10 @@ methods: {
      	else {
      		this.logged=0;
      	}
-  	}
+  	},
+  	logMeIn(username) {
+ 		 this.authenticatedUsername = username;
+	}
 }
    
 }
