@@ -1,4 +1,5 @@
 <template>
+    <div id="meeting">
     <form @submit.prevent="addNewMeeting()">
             <h3>Dodaj nowe spotkanie</h3>
             <label>Nazwa</label>
@@ -6,7 +7,8 @@
             <label>Opis</label>
             <textarea v-model="newMeeting.description"></textarea>
             <button>Dodaj</button><p v-if="submitEmpty===true" style="color:red">Spotkanie musi miec nazwe!</p>
-        </form>
+    </form>
+    </div>
 </template>
 
 <script>
@@ -32,7 +34,8 @@ export default {
 }
 </script>
 <style lang="scss">
-	p {
-		color: red;
+	#meeting {
+		width: 60%;
+		margin: auto;
 	}
-</script>
+</style>

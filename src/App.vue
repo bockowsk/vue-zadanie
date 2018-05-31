@@ -58,6 +58,8 @@ methods: {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  width: 70%;
+  margin: auto;
 }
 
 h1, h2 {

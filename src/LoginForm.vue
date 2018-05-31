@@ -1,5 +1,5 @@
 <template>
-   <div>
+   <div id="login">
    		<h1>Witaj w systemie do zapisów na zajęcia.</h1>
    		<div v-if="email.length < 10">Ale masz krótki adres!</div>
 		<div v-else-if="email.length < 15">Twój adres e-mail jest w sam raz.</div>
@@ -37,3 +37,9 @@
 	},
 }
 </script>
+<style lang="scss">
+	#login {
+		width: 25%;
+		margin: auto;
+	}
+</style>
