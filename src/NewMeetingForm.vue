@@ -35,7 +35,7 @@ export default {
 </script>
 <style lang="scss">
 	#meeting {
-		width: 60%;
+		width: 70%;
 		margin: auto;
 	}
 </style>
