@@ -11,17 +11,22 @@
 </template>
 
 <script>
-export default {
- data() {
-     return {
-         email: '',
-     }
- },
- methods: {
-     enter() {
-         this.$emit('login', this.email);
-     }
- },
- props: ['buttonLabel'],
+	export default {
+	 data() {
+	     return {
+	         email: '',
+	     }
+	 },
+	 methods: {
+	     enter() {
+	         this.$emit('login', this.email);
+	     },
+	 },
+	props: ['buttonLabel'],
+	mounted() {
+		if (!this.buttonLabel) {
+	    	this.buttonLabel = 'Zaloguj się';
+	  	}
+	},
 }
 </script>
