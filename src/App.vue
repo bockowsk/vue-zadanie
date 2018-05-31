@@ -8,13 +8,8 @@
 	</div>
 	
 	<div v-if="logged==0">	
-  		<login-form @login="toogleDiv($event)"></login-form>
+  		<login-form @login="toogleDiv($event)" :button-label="'Wejdź'"></login-form>
   	</div>
-<!--
-  	<login-form @login="enter($event)" :button-label="'Wejdź'"></login-form>
-	<login-form @login="enter($event)" :button-label="'Wleć'"></login-form>
-	<login-form @login="enter($event)" :button-label="'Zaloguj się jak człowiek'"></login-form>
--->
   </div>
 </template>
 
