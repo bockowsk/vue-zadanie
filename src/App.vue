@@ -1,18 +1,20 @@
 <template>
-  <div id="app">
-  	<div v-if="email.length < 10">Ale masz krótki adres!</div>
-	<div v-else-if="email.length < 15">Twój adres e-mail jest w sam raz.</div>
-	<div v-else>Twój adres e-mail jest stanowczo za długi.</div>
-  	
-	<h1>Witaj w systemie do zapisów na zajecia</h1>
-	<div v-if="logged==0">
-	<p>Zaloguj sie e-mail'em<input type="email" v-model="email"><button @click="toogleDiv()">Wchodzę</button></p>
-  	</div>
+  <div id="app">  	
+	
+
 	<div v-if="logged==1">
-	<h3>Witaj {{email}}!</h3>
-	<a href="" @click="toogleDiv()" v-if="logged==1">Wyloguj</a>
+		<h3>Witaj {{authenticatedUsername}}!</h3>
+		<a href="" @click="toogleDiv('')" v-if="logged==1">Wyloguj</a>
 	</div>
-  <login-form @login="logMeIn($event)"></login-form>
+	
+	<div v-if="logged==0">	
+  		<login-form @login="toogleDiv($event)"></login-form>
+  	</div>
+<!--
+  	<login-form @login="enter($event)" :button-label="'Wejdź'"></login-form>
+	<login-form @login="enter($event)" :button-label="'Wleć'"></login-form>
+	<login-form @login="enter($event)" :button-label="'Zaloguj się jak człowiek'"></login-form>
+-->
   </div>
 </template>
 
@@ -27,11 +29,13 @@ export default {
       msg: 'Hello World!!!',
       email: '',
       logged: 0,
+      authenticatedUsername: '',
     }
   },
 methods: {
- 	 toogleDiv() {
+ 	 toogleDiv(username) {
      	if (this.logged == 0) {
+     		this.authenticatedUsername = username;
      		this.logged=1;
      	}
      	else {

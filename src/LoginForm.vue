@@ -1,5 +1,9 @@
 <template>
    <div>
+   		<h1>Witaj w systemie do zapisów na zajęcia.</h1>
+   		<div v-if="email.length < 10">Ale masz krótki adres!</div>
+		<div v-else-if="email.length < 15">Twój adres e-mail jest w sam raz.</div>
+		<div v-else>Twój adres e-mail jest stanowczo za długi.</div>
        <label>Zaloguj się e-mailem</label>
        <input type="email" v-model="email">
        <button @click="enter()">Wchodzę</button>
