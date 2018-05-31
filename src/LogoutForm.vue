@@ -1,7 +1,5 @@
 <template>
-   <div>
-   	<a href="" @click="leave('')">Wyloguj</a>
-   </div>
+   	<button @click="leave()">Wyloguj</button>
 </template>
 
 <script>

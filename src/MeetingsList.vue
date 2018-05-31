@@ -1,4 +1,6 @@
 <template>
+	<div>
+	<h2>Zajęcia</h2>
     <table v-if="meetings.length > 0">
         <thead>
             <tr>
@@ -13,6 +15,8 @@
             </tr>
         </tbody>
     </table>
+    <p v-else>Brak zaplanowanych spotkan</p>
+    </div>
 </template>
 
 <script>
