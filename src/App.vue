@@ -2,7 +2,7 @@
   <div id="app">  	
 	
 
-	<div v-if="logged==1">
+	<div v-show="logged==1">
 		<logged-user :user="authenticatedUsername"></logged-user>
 		<logout-form @logout="toogleDiv($event)"></logout-form>
 		<meeting-page></meeting-page>
