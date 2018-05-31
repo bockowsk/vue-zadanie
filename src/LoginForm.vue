@@ -6,7 +6,7 @@
 		<div v-else>Twój adres e-mail jest stanowczo za długi.</div>
        <label>Zaloguj się e-mailem</label>
        <input type="email" v-model="email">
-       <button @click="enter()">{{buttonLabel}}</button>
+       <button @click="enter()">{{buttonLabelToDisplay}}</button>
    </div>
 </template>
 
@@ -23,10 +23,17 @@
 	     },
 	 },
 	props: ['buttonLabel'],
+/*	
 	mounted() {
 		if (!this.buttonLabel) {
 	    	this.buttonLabel = 'Zaloguj się';
 	  	}
+	},
+*/
+	computed: {
+ 		buttonLabelToDisplay() {
+    		return this.buttonLabel || 'Zaloguj się';
+  		}
 	},
 }
 </script>
