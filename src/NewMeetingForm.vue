@@ -5,7 +5,7 @@
             <input type="text" v-model="newMeeting.name">
             <label>Opis</label>
             <textarea v-model="newMeeting.description"></textarea>
-            <button>Dodaj</button>
+            <button>Dodaj</button><p v-if="submitEmpty===true" style="color:red">Spotkanie musi miec nazwe!</p>
         </form>
 </template>
 
@@ -13,14 +13,26 @@
 export default {
   data() {
       return {
-          newMeeting: {}
+          newMeeting: {},
+          submitEmpty: false,
       };
   },
   methods: {
       addNewMeeting() {
-        this.$emit('added', this.newMeeting);
-        this.newMeeting = {};
+        if (!this.newMeeting.name) {
+        	this.submitEmpty=true;
+        }
+        else {
+        	this.submitEmpty=false;
+        	this.$emit('added', this.newMeeting);
+        	this.newMeeting = {};
+        }
     }
   }
 }
+</script>
+<style lang="scss">
+	p {
+		color: red;
+	}
 </script>
