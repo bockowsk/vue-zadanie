@@ -4,7 +4,7 @@
 
 	<div v-if="logged==1">
 		<h3>Witaj {{authenticatedUsername}}!</h3>
-		<a href="" @click="toogleDiv('')" v-if="logged==1">Wyloguj</a>
+		<logout-form @logout="toogleDiv($event)"></logout-form>
 	</div>
 	
 	<div v-if="logged==0">	
@@ -21,9 +21,10 @@
 <script>
 import "milligram";
 import LoginForm from "./LoginForm";
+import LogoutForm from "./LogoutForm";
 export default {
   name: 'app',
-  components: {LoginForm},
+  components: {LoginForm, LogoutForm},
   data () {
     return {
       msg: 'Hello World!!!',
