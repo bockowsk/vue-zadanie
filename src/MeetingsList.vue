@@ -15,7 +15,7 @@
             <tr v-for="meeting in meetings" :key="meeting.name">
                 <td>{{ meeting.name }}</td>
                 <td>{{ meeting.description }}</td>
-                <td>Uczestnicy</td>
+                <td><participants-list :participants="meeting.participants"></participants-list></td>
                 <td><button class="button button-outline">Zapisz sie</button>&nbsp<button>Usun puste spotkanie</button></td>
             </tr>
         </tbody>
@@ -25,7 +25,9 @@
 </template>
 
 <script>
+import ParticipantsList from "./ParticipantsList";
 export default {
+	components: {ParticipantsList},
     props: ['meetings']
 }
 </script>
