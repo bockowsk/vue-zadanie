@@ -3,7 +3,10 @@
 	
 
 	<div v-if="logged==1">
+		<logged-user :user="authenticatedUsername"></logged-user>
+		<!--
 		<h3>Witaj {{authenticatedUsername}}!</h3>
+		-->
 		<logout-form @logout="toogleDiv($event)"></logout-form>
 	</div>
 	
@@ -17,9 +20,10 @@
 import "milligram";
 import LoginForm from "./LoginForm";
 import LogoutForm from "./LogoutForm";
+import LoggedUser from "./LoggedUser";
 export default {
   name: 'app',
-  components: {LoginForm, LogoutForm},
+  components: {LoginForm, LogoutForm, LoggedUser},
   data () {
     return {
       msg: 'Hello World!!!',
