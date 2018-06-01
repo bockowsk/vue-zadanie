@@ -2,11 +2,12 @@
     <div>
        <button v-if="this.showNewMeeting===false"  @click="showForm()">Dodaj nowe spotkanie</button>
        <new-meeting-form v-if="this.showNewMeeting===true" @added="addNewMeeting($event)"></new-meeting-form>
-       <meetings-list :meetings="meetings" :usern="user"></meetings-list>
+       <meetings-list :meetings="meetings" @added="addNewParticipant($event)"></meetings-list>
     </div>
 </template>
 
 <script>
+import Vue from 'vue';
 import NewMeetingForm from "./NewMeetingForm";
 import MeetingsList from "./MeetingsList";
 
@@ -26,6 +27,13 @@ export default {
       },
       showForm() {
       	this.showNewMeeting = true;
+      },
+      addNewParticipant(meeting) {
+      	var index=this.meetings.indexOf(meeting);
+      	//this.meetings[index].participants.push(this.user);
+      	meeting.participants.push(this.user);
+      	Vue.set(this.meetings,index,meeting);
+      	//alert("ile: "+this.meetings[index].participants.length);
       }
   }
 }
