@@ -5,7 +5,7 @@
 	<div v-show="logged==1">
 		<logged-user :user="authenticatedUsername"></logged-user>
 		<logout-form @logout="toogleDiv($event)"></logout-form>
-		<meeting-page></meeting-page>
+		<meeting-page :user="authenticatedUsername"></meeting-page>
 	</div>
 	
 	<div v-if="logged==0">	
@@ -23,6 +23,7 @@ import MeetingPage from "./MeetingPage";
 export default {
   name: 'app',
   components: {LoginForm, LogoutForm, LoggedUser, MeetingPage},
+  props: [''],
   data () {
     return {
       msg: 'Hello World!!!',

@@ -17,7 +17,7 @@
                 <td>{{ meeting.description }}</td>
                 <td><participants-list :participants="meeting.participants"></participants-list></td>
                 <td>
-                	<button class="button button-outline" @click="register()">Zapisz sie</button>
+                	<button class="button button-outline" @click="register(usern)">Zapisz sie</button>
                 	&nbsp
                 	<button v-if="!participants" @click="deleteMeeting(meeting)">Usun puste spotkanie</button></td>
             </tr>
@@ -31,11 +31,14 @@
 import ParticipantsList from "./ParticipantsList";
 export default {
 	components: {ParticipantsList},
-    props: ['meetings'],
+    props: ['meetings', 'usern'],
     methods: {
     	deleteMeeting(meeting) {
     		var index = this.meetings.indexOf(meeting);
     		this.meetings.splice(index,1);
+    	},
+    	register(u) {
+    		this.meetings.participants.add(u);
     	}
     }
 }

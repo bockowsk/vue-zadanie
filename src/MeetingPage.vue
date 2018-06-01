@@ -2,7 +2,7 @@
     <div>
        <button v-if="this.showNewMeeting===false"  @click="showForm()">Dodaj nowe spotkanie</button>
        <new-meeting-form v-if="this.showNewMeeting===true" @added="addNewMeeting($event)"></new-meeting-form>
-       <meetings-list :meetings="meetings"></meetings-list>
+       <meetings-list :meetings="meetings" :usern="user"></meetings-list>
     </div>
 </template>
 
@@ -12,6 +12,7 @@ import MeetingsList from "./MeetingsList";
 
 export default {
   components: {NewMeetingForm, MeetingsList},
+  props: ['user'],
   data() {
       return {
           meetings: [],
