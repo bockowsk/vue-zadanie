@@ -31,7 +31,7 @@ export default {
       addNewParticipant(meeting) {
       	var index=this.meetings.indexOf(meeting);
       	//this.meetings[index].participants.push(this.user);
-      	if (meeting.participants.indexOf(this.user)==-1) {
+      	if (meeting.participants.indexOf(this.user)===-1) {
       		meeting.participants.push(this.user);
       		Vue.set(this.meetings,index,meeting);
       		//alert("ile: "+this.meetings[index].participants.length);
@@ -40,8 +40,9 @@ export default {
       removeParticipant(meeting) {
       	var index=this.meetings.indexOf(meeting);
       	//this.meetings[index].participants.push(this.user);
-      	if (meeting.participants.indexOf(this.user)!=-1) {
-      		meeting.participants.pop(this.user);
+      	var index2=meeting.participants.indexOf(this.user)
+      	if (index2!==-1) {
+      		meeting.participants.splice(index2,1);
       		Vue.set(this.meetings,index,meeting);
       		//alert("ile: "+this.meetings[index].participants.length);
       	}
