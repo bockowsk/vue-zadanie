@@ -1,6 +1,11 @@
 Just a frontend built in Vue.
-If you have Docker installed you just need to run 2 commands and thats all:
-# docker build -t docker.io/node:vue .
-# docker run --name=vue --publish=80:8080 --detach docker.io/node:vue
-then you will be able to access it using url address in your browser: 
+
+Spawn your application using [**Docker**](https://www.docker.com/community-edition) container just running 2 commands:
+~~~
+docker build -t docker.io/node:vue .
+docker run --name=vue --publish=80:8080 --detach docker.io/node:vue
+~~~
+then you will be able to access a simple app using url address in your browser: 
+~~~
 http://localhost
+~~~
