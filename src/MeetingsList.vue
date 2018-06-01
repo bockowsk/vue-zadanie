@@ -42,7 +42,11 @@ export default {
     	},
     	register(m) {
     		this.$emit('added', m);
+    	},
+    	unregister(m) {
+    		this.$emit('removed', m);
     	}
+    	
     }
 }
 

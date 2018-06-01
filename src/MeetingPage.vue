@@ -2,7 +2,7 @@
     <div>
        <button v-if="this.showNewMeeting===false"  @click="showForm()">Dodaj nowe spotkanie</button>
        <new-meeting-form v-if="this.showNewMeeting===true" @added="addNewMeeting($event)"></new-meeting-form>
-       <meetings-list :meetings="meetings" :usern="user" @added="addNewParticipant($event)"></meetings-list>
+       <meetings-list :meetings="meetings" :usern="user" @removed="removeParticipant($event)" @added="addNewParticipant($event)"></meetings-list>
     </div>
 </template>
 
@@ -36,7 +36,17 @@ export default {
       		Vue.set(this.meetings,index,meeting);
       		//alert("ile: "+this.meetings[index].participants.length);
       	}
-      }
+      },
+      removeParticipant(meeting) {
+      	var index=this.meetings.indexOf(meeting);
+      	//this.meetings[index].participants.push(this.user);
+      	if (meeting.participants.indexOf(this.user)!=-1) {
+      		meeting.participants.pop(this.user);
+      		Vue.set(this.meetings,index,meeting);
+      		//alert("ile: "+this.meetings[index].participants.length);
+      	}
+      },
+      
   }
 }
 </script>
