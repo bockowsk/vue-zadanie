@@ -1,5 +1,6 @@
 <template>
      <ul>
+     	<h1>DLUGOSC {{participants.length}}</h1>
      	<li v-for="participant in participants" :key="participant.id">{{participant}}</li>
 	</ul>
 </template>

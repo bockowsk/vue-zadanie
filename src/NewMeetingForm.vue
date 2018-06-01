@@ -3,7 +3,7 @@
     <form @submit.prevent="addNewMeeting()">
             <h3>Dodaj nowe spotkanie</h3>
             <label>Nazwa</label>
-            <input type="text" v-model="newMeeting.name">
+            <input type="text" v-model="newMeeting.name"/>
             <label>Opis</label>
             <textarea v-model="newMeeting.description"></textarea>
             <button>Dodaj</button><p v-if="submitEmpty===true" style="color:red">Spotkanie musi miec nazwe!</p>
@@ -26,6 +26,7 @@ export default {
         }
         else {
         	this.submitEmpty=false;
+        	this.newMeeting.participants=[];
         	this.$emit('added', this.newMeeting);
         	this.newMeeting = {};
         }

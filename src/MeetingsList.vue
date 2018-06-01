@@ -14,10 +14,11 @@
         <tbody>
             <tr v-for="meeting in meetings" :key="meeting.name">
                 <td>{{ meeting.name }}</td>
-                <td>{{ meeting.description }}</td>
+                <td><h1>{{meeting.participants.length}}</h1></td>
+                
                 <td><participants-list :participants="meeting.participants"></participants-list></td>
                 <td>
-                	<button class="button button-outline" @click="register(usern)">Zapisz sie</button>
+                	<button class="button button-outline" @click="register(meeting,usern)" :data-id="meeting.name">Zapisz sie</button>
                 	&nbsp
                 	<button v-if="!participants" @click="deleteMeeting(meeting)">Usun puste spotkanie</button></td>
             </tr>
@@ -37,8 +38,11 @@ export default {
     		var index = this.meetings.indexOf(meeting);
     		this.meetings.splice(index,1);
     	},
-    	register(u) {
-    		this.meetings.participants.add(u);
+    	register(m,u) {
+    		alert("user: "+u);
+    		alert("meeting: "+m.name);
+    		m.participants.push(u);
+    		alert("element"+m.participants[0]);
     	}
     }
 }
