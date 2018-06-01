@@ -21,7 +21,8 @@
 					</ul>
                 </td>
                 <td>
-                	<button class="button button-outline" @click="register(meeting)" :data-id="meeting.name">Zapisz sie</button>
+                	<button v-if="meeting.participants.indexOf(usern)==-1"  class="button button-outline" @click="register(meeting)" :data-id="meeting.name">Zapisz sie</button>
+                	<button v-else  class="button button-outline" @click="unregister(meeting)" :data-id="meeting.name">wypisz sie</button>
                 	&nbsp
                 	<button v-if="meeting.participants.length==0" @click="deleteMeeting(meeting)">Usun puste spotkanie</button></td>
             </tr>
@@ -33,7 +34,7 @@
 
 <script>
 export default {
-    props: ['meetings'],
+    props: ['meetings', 'usern'],
     methods: {
     	deleteMeeting(meeting) {
     		var index = this.meetings.indexOf(meeting);
