@@ -6,7 +6,8 @@
 		<div v-else>Twój adres e-mail jest stanowczo za długi.</div>
        <label>Zaloguj się e-mailem</label>
        <input type="email" v-model="email">
-       <button @click="enter()">{{buttonLabelToDisplay}}</button>
+       <button v-if="email.length >8 && email.length < 20" @click="enter()">{{buttonLabelToDisplay}}</button>
+       <button v-else>{{buttonLabelToDisplay}}</button>
    </div>
 </template>
 
